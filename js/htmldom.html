@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML DOM EXAMLPLE</title>
+</head>
+<body>
+    <button onclick="addParagraph()">ADD_Paragraph</button>
+    <div id="para1"></div>
+    <p>This is an old paragraph.</p>
+    <div id="para2"></div>
+    <script>
+        function addParagraph() {
+            var newParagraph = document.createElement("p");
+            newParagraph.textContent = "This is a new paragraph.";
+            newParagraph.style.color = "blue";
+            newParagraph.backgroundColor = "lightgray";
+            newParagraph.style.fontSize = "20px";
+            //document.getElementById("para1").appendChild(newParagraph);
+            //document.body.appendChild(newParagraph);
+            //document.getElementById("para2").appendChild(newParagraph);
+            //document.getElementsByClassName("para2")[0].appendChild(newParagraph);
+            //const id=document.querySelector("#para1");
+            const id=document.querySelectorAll("div");
+            id.forEach((id1) =>{
+                const newParagraph = document.createElement("p");
+                newParagraph.textContent = "This is a new paragraph.";
+                newParagraph.style.color = "blue";
+                newParagraph.backgroundColor = "lightgray";
+                newParagraph.style.fontSize = "20px";
+                id1.appendChild(newParagraph);
+
+            }
+            );
+        }   
+    </script>
+</body>
+</html>

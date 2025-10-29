@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .flex {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .flex-col {
+      flex-direction: column;
+    }
+  </style>
+  <body>
+    <div class="flex flex-col">
+      <header class="flex">
+        <div
+          style="
+            width: 5rem;
+            height: 5rem;
+            background: lightgray;
+            border-radius: 999px;
+          "
+        ></div>
+        <h1>Counter App</h1>
+      </header>
+      <div class="counter flex flex-col">
+        <h2 id="counter">0</h2>
+        <div>
+          <button onclick="decrement()">-</button>
+          <button onclick="increment()">+</button>
+        </div>
+      </div>
+      <header class="flex">
+        <h1>Image Gallery</h1>
+      </header>
+      <img style="width: 40rem; height: 20rem" />
+      <button onclick="changeImage()">Change Image</button>
+    </div>
+    <script>
+      let count = 0;
+      const counter = document.getElementById("counter");
+
+      function updateCounter() {
+        if (count === 5) counter.style.color = "red";
+        else counter.style.color = "black";
+        counter.innerText = count;
+      }
+      function increment() {
+        if (count >= 10) return alert("Maximum limit");
+        count++;
+        updateCounter();
+      }
+      function decrement() {
+        if (count < 0) return alert("Minimum limit");
+        count--;
+        updateCounter();
+      }
+
+      const imageContainer = document.querySelector("img");
+      const images = [];
+      let idx = 0;
+
+      imageContainer.src = images[0];
+
+      function changeImage() {
+        idx = (idx + 1) % images.length;
+        imageContainer.src = images[idx];
+      }
+    </script>
+  </body>
+</html>
